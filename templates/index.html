@@ -1,0 +1,30 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Список товаров{% endblock %}
+
+{% block content %}
+
+	<div class='container'>
+        	<nav class="navbar navbar-default">
+                        <ul class="nav navbar-nav">
+                                <li class='active'><a href='#'>Cписок товаров</a></li>
+                        </ul>
+        	</nav>
+
+
+		<ul>
+		{% for product_type in product_types %}
+    			<h3>{{ product_type.name }}</h3>
+    			{% for product in products %}
+        	<ul>
+        			{% if product_type.id == product.type_id %}
+            				<li><a href="/product/{{ product.id }}">{{ product.name }}</a></li>
+        			{% endif %}
+        	</ul>
+    			{% endfor %}
+		{% endfor %}
+		</ul>
+
+	</div>
+
+{% endblock %}

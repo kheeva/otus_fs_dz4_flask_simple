@@ -1,0 +1,33 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Продукт{% endblock %}
+
+{% block content %}
+        <div class='container'>
+        <H1>{{ product.name }}</H1>
+        <nav class="navbar navbar-default">
+                        <ul class="nav navbar-nav">
+                                <li class="active"><a href="#">Описание</a></li>
+                        </ul>
+        </nav>
+        <div class='row'>
+                <div class='col-md-4'>
+                        <img class='img-responsive' src={{ product.img_url }}>
+                </div>
+                <div class='col-md-8'>
+			{% if product.specs %}
+                        <h4>Коротко о товаре</h4>
+			<ul>
+			{% for spec in product.specs %}
+				<li>{{ spec.spec_type.name }}  {{ spec.value }}</li>
+			{% endfor %}
+			</ul>
+			{% endif %}
+
+                </div>
+        </div>
+	<a href="/">Назад к списку</a>
+        </div>
+
+{% endblock %}
+
