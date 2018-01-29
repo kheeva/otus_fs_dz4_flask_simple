@@ -9,6 +9,7 @@ You just need to download and install python if you already haven't: http://pyth
 
 Install the modules:
 ```
+pip install Flask
 pip install Jinja2
 pip install Flask-Migrate
 pip install flask_script
